@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analise de Crédito</title>
+</head>
+
+<body>
+
+    <h1>📊 Sistema de análise de crédito</h1>
+
+    <p>Qual é o valor do seu salário atual</p>
+    <input type="number" id="salario" placeholder="Digite o seu salário">
+
+    <p>Qual o valor da parcela que deseja pagar</p>
+    <input type="number" id="parcela" placeholder="Digite a parcela">
+
+    <br><br>
+    <button onclick="analisar()">Analisar Crédito</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        function analisar() {
+            let salario = Number(document.getElementById("salario").value);
+            let parcela = Number(document.getElementById("parcela").value);
+            let resultado = document.getElementById("resultado");
+
+            let limite = salario * 0.3;
+
+            resultado.innerHTML = "";
+            resultado.style.marginTop = "20px";
+            resultado.style.fontWeight = "bold";
+
+            if (parcela <= limite) {
+                resultado.innerHTML = "CRÉDITO APROVADO<br>";
+                resultado.innerHTML += "O valor está dentro do limite de R$ " + limite;
+                resultado.style.color = "green";
+            } else {
+                resultado.innerHTML = "CRÉDITO NEGADO!<br>";
+                resultado.innerHTML += "A parcela de R$ " + parcela +
+                    " excede seu limite de R$ " + limite;
+                }
+        }
+    </script>
+
+</body>
+
+</html>
